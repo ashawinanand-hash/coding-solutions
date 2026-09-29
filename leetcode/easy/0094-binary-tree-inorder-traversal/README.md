@@ -50,9 +50,9 @@ Given the `root` of a binary tree, return  *the inorder traversal of its nodes' 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 13.3 MB (beats 5.12%)  
-**Submitted:** 2026-09-29T03:39:35.995Z  
+**Runtime:** 1 ms (beats 6.13%)  
+**Memory:** 13.5 MB (beats 5.12%)  
+**Submitted:** 2026-09-29T06:11:36.962Z  
 
 ```cpp
 /**
