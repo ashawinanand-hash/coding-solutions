@@ -42,25 +42,23 @@ Output: [1,1,0]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 27 ms (beats 34.11%)  
-**Memory:** 107 MB (beats 58.91%)  
-**Submitted:** 2026-10-25T09:07:02.348Z  
+**Runtime:** 24 ms (beats 46.06%)  
+**Memory:** 107.5 MB (beats 18.53%)  
+**Submitted:** 2026-10-25T09:59:42.530Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-        stack<int> st;
-        vector<int> ans(temperatures.size(), 0);
+        int n = temperatures.size();
+        vector<int> ans(n, 0);
+        stack<int> st;  // indices with temperatures in decreasing order
 
-        for (int i = 0; i < temperatures.size(); i++) {
-            while (!st.empty()) {
-                if (temperatures[st.top()] < temperatures[i]) {
-                    ans[st.top()] = i - st.top();
-                    st.pop();
-                } else {
-                    break;
-                }
+        for (int i = 0; i < n; i++) {
+            while (!st.empty() && temperatures[st.top()] < temperatures[i]) {
+                int idx = st.top();
+                st.pop();
+                ans[idx] = i - idx;
             }
             st.push(i);
         }
