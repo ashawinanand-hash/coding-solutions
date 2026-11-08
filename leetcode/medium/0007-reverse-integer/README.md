@@ -43,21 +43,25 @@ Output: 21
 ## Solution
 
 **Language:** C++  
-**Runtime:** 1 ms  
-**Memory:** 7.7 MB  
-**Submitted:** 2026-11-08T08:50:08.822Z  
+**Runtime:** 2 ms (beats 47.97%)  
+**Memory:** 8.6 MB (beats 56.31%)  
+**Submitted:** 2026-11-08T09:02:23.374Z  
 
 ```cpp
 class Solution {
 public:
     int reverse(int x) {
-      double ans = 0;
+      long long ans = 0;
       if(x<0){
          while(x){
         int c = x%10;
         ans = (ans*10) + c;
         x = x/10;
       }
+     if(ans < INT_MIN){
+        return 0;
+     }
+    
       return ans;
       }
       while(x){
@@ -65,6 +69,9 @@ public:
         ans = (ans*10) + c;
         x = x/10;
       }
+    if(ans > INT_MAX)
+    return 0;
+
       return ans;  
     }
 };
